@@ -1,0 +1,20 @@
+Improved Bubble Sort
+Sorted Array: 
+17 18 39 44 50 61 77 85 90 92 
+Total Number of Comparisons: 45
+Insertion Sort
+Sorted Array: 
+17 18 39 44 50 61 77 85 90 92 
+Total Number of Comparisons: 44
+Selection Sort
+Sorted Array: 
+17 18 39 44 50 61 77 85 90 92 
+Total Number of Comparisons: 45
+Counting Sort
+Sorted Array: 
+17 18 39 44 50 61 77 85 90 92 
+Total Number of Comparisons: 10
+Heap Sort
+Sorted Array: 
+17 18 39 44 50 61 77 85 90 92 
+Total Number of Comparisons: 28
