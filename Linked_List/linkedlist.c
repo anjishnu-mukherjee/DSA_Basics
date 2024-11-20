@@ -212,6 +212,38 @@ void print_linked_list(node* h)
     printf("NULL\n");
 }
 
+// Bubble sort O(n^2)
+void sort_linked_list(node** hptr) 
+{
+    if (*hptr == NULL) 
+    {
+        printf("Empty List\n");
+        return;
+    }
+
+    int swapped;
+    node* ptr1;
+    node* lptr = NULL;
+
+    do 
+    {
+        swapped = 0;
+        ptr1 = *hptr;
+
+        while (ptr1->link != lptr) 
+        {
+            if (ptr1->data > ptr1->link->data) 
+            {
+                int temp = ptr1->data;
+                ptr1->data = ptr1->link->data;
+                ptr1->link->data = temp;
+                swapped = 1;
+            }
+            ptr1 = ptr1->link;
+        }
+        lptr = ptr1; 
+    } while (swapped);
+}
 
 int main() 
 {
@@ -227,8 +259,9 @@ int main()
         printf("5. Delete at end\n");
         printf("6. Delete at position\n");
         printf("7. Delete value from list\n");
-        printf("8. Reverse linked list\n");
-        printf("9. Print linked list\n");
+        printf("8. Sort linked list\n");
+        printf("9. Reverse linked list\n");
+        printf("10. Print linked list\n");
         printf("0. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
@@ -300,10 +333,14 @@ int main()
                 print_linked_list(head);
                 break;
             case 8:
-                head = reverse_linked_list(head);
+                sort_linked_list(&head);
                 print_linked_list(head);
                 break;
             case 9:
+                head = reverse_linked_list(head);
+                print_linked_list(head);
+                break;
+            case 10:
                 print_linked_list(head);
                 break;
             case 0:
