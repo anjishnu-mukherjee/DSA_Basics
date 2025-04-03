@@ -1,1 +1,63 @@
 .DS_Store
+
+# Expression
+infixtopostfix
+
+# Linked_List
+linkedlist
+doublylinkedlist
+circularlinkedlist
+doublycircularlinkedlist
+dll_deleteoddplaces
+
+# Matrix
+arrAddMul
+trirep
+
+# Miscellaneous
+complex
+gausselimination
+polynomial
+order_ith_statistic
+
+#Practice_Questions
+balancedparanthesis
+findMiddleLinkedList
+mergesortedlists
+numbertolinkedlist
+removeduplicates
+reversearray
+twostackarray
+
+# Recursion
+fibonacci
+n_queen_puzzle
+pascals_triangle
+recsum
+tower_of_hanoi
+
+# Searching
+search1d
+
+# Sorting
+mergesort
+quicksort
+sorting_algorithms
+cocktailshakersort
+heapsort
+sorting1d
+
+# Stack_Queue
+min_priority_queue
+stack
+queue
+queue_circularlinkedlist
+stack_linkedlist
+queue_linkedlist
+
+# Tree_Graph
+bst
+dfs_adjList
+bfs_adjList
+djikstras
+prims
