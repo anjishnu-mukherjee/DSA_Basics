@@ -222,7 +222,7 @@ void primMST(Graph *graph, int start)
 
             if (pos != -1 && wt<key[v])
             {
-                key[v] = key[u] + wt;
+                key[v] = wt;
                 parent[v] = u;
                 pq.heap[pos].key = key[v];
                 pq.heap[pos].parent = u;
@@ -233,13 +233,17 @@ void primMST(Graph *graph, int start)
 
     printf("Minimal Spanning Tree is :\n");
     printf("Edge\t\tWeight\n");
+    int totalwt=0;
     for (int i = 0; i < V; i++)
     {
         if (parent[i] != -1)
         {
             printf("%d - %d\t\t %d\n", parent[i],i,key[i]);
+            totalwt += key[i];
         }
     }
+
+    printf("Total Weight of MST: %d\n",totalwt);
 
     free(key);
     free(parent);
@@ -248,7 +252,7 @@ void primMST(Graph *graph, int start)
 int main()
 {
     int start;
-    Graph *graph = readGraph("graph.txt");
+    Graph *graph = readGraph("graph2.txt");
     if (!graph)
     {
         printf("Error reading graph file\n");

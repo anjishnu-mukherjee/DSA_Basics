@@ -164,15 +164,15 @@ void printPath(int *parent, int v)
 void dijkstra(Graph *graph, int source, int dest)
 {
     int V = graph->numVertex;
-    int *dist = (int *)malloc(V * sizeof(int)); // calculates distance O(n)
-    int *parent = (int *)malloc(V * sizeof(int)); // keeps track of which the predecessor O(n)
-    int *maxEdge = (int *)malloc(V * sizeof(int)); // keeps count of the total weight of the edge O(n)
+    int *dist = (int *)malloc(V * sizeof(int));
+    int *parent = (int *)malloc(V * sizeof(int));
+    int *edgeFromParent = (int *)malloc(V * sizeof(int)); // <-- New array
 
     for (int i = 0; i < V; i++)
     {
         dist[i] = INF;
         parent[i] = -1;
-        maxEdge[i] = 0;
+        edgeFromParent[i] = 0;
     }
     dist[source] = 0;
 
@@ -198,7 +198,7 @@ void dijkstra(Graph *graph, int source, int dest)
             {
                 dist[v] = dist[u] + weight;
                 parent[v] = u;
-                maxEdge[v] = (maxEdge[u] > weight) ? maxEdge[u] : weight;
+                edgeFromParent[v] = weight;
                 pq.heap[pos].key = dist[v];
                 pq.heap[pos].parent = u;
                 decreaseKey(&pq, pos, dist[v]);
@@ -206,41 +206,49 @@ void dijkstra(Graph *graph, int source, int dest)
         }
     }
 
-    printf("Vertex\tPredecessor\tDistance\tMax Edge\n");
+    printf("Vertex\tPredecessor\tDistance\tEdgeFromParent\n");
     for (int i = 0; i < V; i++)
     {
         printf("%d\t%d\t\t", i, parent[i]);
         if (dist[i] == INF)
             printf("INF\t\tINF\n");
         else
-            printf("%d\t\t%d\n", dist[i], maxEdge[i]);
-        
+            printf("%d\t\t%d\n", dist[i], edgeFromParent[i]);
     }
 
-    for (int i = 0; i< V; i++) // Prints the path from src to des (recursive function)
+    for (int i = 0; i< V; i++)
     {
-        printPath(parent,i);
+        printf("Path to %d: ", i);
+        if (dist[i] == INF)
+            printf("No Path\n");
+        else
+        {
+            printPath(parent,i);
+            printf(" [%d]\n",dist[i]);
+        }
         printf("\n");
     }
 
     printf("Path from Source to Destination: ");
     printPath(parent,dest);
+    printf(" [%d]\n",dist[dest]);
+
     free(dist);
     free(parent);
-    free(maxEdge);
+    free(edgeFromParent);
 }
 
 int main()
 {
     int source,destination;
-    Graph *graph = readGraph("graph.txt");
+    Graph *graph = readGraph("graph2.txt");
     if (!graph)
         return 1;
     
     printGraph(graph);
     printf("Enter the source vertex: ");
     scanf("%d", &source);
-    printf("Enter the destintion vertex: ");
+    printf("Enter the destination vertex: ");
     scanf("%d",&destination);
     dijkstra(graph, source,destination);
     freeGraph(graph);
