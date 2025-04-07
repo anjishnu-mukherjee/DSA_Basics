@@ -101,13 +101,7 @@ void readfromfile(int ascending[],int descending[],int random[],int n)
     }
     fclose(fptr);
 }
-#include <stdio.h>
-#include <stdlib.h>
 
-extern int comparisonCount;
-void generatetofile(int n);
-void readfromfile(int ascending[], int descending[], int random[], int n);
-void mergeSort(int a[], int lb, int ub);
 
 int main()
 {
