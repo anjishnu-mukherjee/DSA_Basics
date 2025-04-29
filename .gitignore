@@ -62,3 +62,7 @@ dfs_adjList
 bfs_adjList
 djikstras
 prims
+
+# Dynamic_Programming
+chainmatrixmul
+floydwarshall
