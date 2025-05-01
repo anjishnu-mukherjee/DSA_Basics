@@ -62,7 +62,9 @@ dfs_adjList
 bfs_adjList
 djikstras
 prims
+kruskals
 
 # Dynamic_Programming
 chainmatrixmul
 floydwarshall
+kmpmatching
