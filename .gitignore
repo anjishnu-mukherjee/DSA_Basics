@@ -63,8 +63,11 @@ bfs_adjList
 djikstras
 prims
 kruskals
+connectedComponents
 
 # Dynamic_Programming
 chainmatrixmul
 floydwarshall
 kmpmatching
+lcs
+knapsackAlgo
