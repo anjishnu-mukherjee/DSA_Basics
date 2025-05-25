@@ -34,6 +34,14 @@ void computeprefix(char *pattern, int n, int *pi)
         }
         pi[i] = k;
     }
+
+    // For debugging purposes, print the prefix array
+    printf("Prefix array: ");
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d ", pi[i]);
+    }
+    printf("\n");
 }
 
 void KMP(char *text, char* pattern, int n, int m)
